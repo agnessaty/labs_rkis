@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Object-oriented JavaScript example</title>
+  </head>
+
+  <body>
+    <p>This example requires you to enter commands in your browser's JavaScript console (see <a href="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools">What are browser developer tools</a> for more information).</p>
+    
+    <script>
+            const person = {
+                name: {
+                    first: 'Bob',
+                    last: 'Smith'
+                },
+                age: 32,
+                gender: "male",
+                interests: ["music", "skiing"],
+                bio: function () {
+                    alert(
+                        this.name.first +
+                        " " +
+                        this.name.last +
+                        " is " +
+                        this.age +
+                        " years old. He likes " +
+                        this.interests[0] +
+                        " and " +
+                        this.interests[1] +
+                        ".",
+                    );
+                },
+                greeting: function () {
+                    alert("Hi! I'm " + this.name[0] + ".");
+                },
+            };
+
+            //После сохранения и обновления, попробуйте ввести что-нибудь следующее в консоль JavaScript браузера:
+            //person.name;
+            //person.name[0];
+            //person.age;
+            //person.interests[1];
+            //person.bio();
+            //person.greeting();
+            /* Результат: Bob Smith is 32 years old. He likes music and skiing. */
+
+            person.age;
+            person["name"]["last"] = "Cratchit"; // Результат 'Cratchit'
+
+            person["eyes"] = "hazel";
+            person.farewell = function () {
+            alert("Bye everybody!");
+        }; // В консоли браузера получаем 'Bye everybody!'
+
+        let myDataName = "height";
+        let myDataValue = "1.75m";
+        person[myDataName] = myDataValue; // В консоли поучаем 1.75m
+
+
+        const person1 = {
+            name: "Chris",
+            greeting: function () {
+                alert("Hi! I'm " + this.name + ".");
+            },
+        };
+
+        const person2 = {
+            name: "Brian",
+            greeting: function () {
+                alert("Hi! I'm " + this.name + ".");
+            },
+        };
+        
+    </script>
+  </body>
+
+</html>

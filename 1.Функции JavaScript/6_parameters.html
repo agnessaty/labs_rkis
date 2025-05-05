@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Параметры функций</title>
+</head>
+<body>
+    <script>
+        
+        // Параметры по умолчанию
+        function multiply (a, b) {
+            b = typeof b !== "undefined" ? b : 1;
+
+            return a * b;
+        }
+
+        multiply(5); // Возвращает 5
+
+        function multiply(a, b = 1) {
+            return a * b;
+        }
+
+        multiply(5); // Возварщает 5
+
+
+        // Остаточные параметры 
+        function multiply(multiplier, ...theArgs) {
+            return theArgs.map((x) => multiplier * x);
+        }
+
+        var arr = multiply(2, 1, 2, 3);
+        console.log(arr); // Возвращает [2, 4, 6]
+
+    </script>
+</body>
+</html>

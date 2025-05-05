@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Замыкания</title>
+</head>
+<body>
+    <script>
+
+        var pet = function(name) {
+            var getName = function () {
+                return name;
+            }
+            return getName;
+        }
+        myPet = pet("Vivie");
+
+        myPet(); // Результат 'Vivie'
+
+
+
+        var createPet = function (name) {
+            var sex;
+
+            return {
+                setName: function(newName) {
+                    name = newName;
+                },
+
+                getName: function () {
+                    return name;
+                },
+
+                getSex: function() {
+                    return sex;
+                },
+
+                setSex: function (newSex) {
+                    if (
+                        typeof newSex === "string" &&
+                        (newSex.toLowerCase() === "male" || newSex.toLowerCase() === "female")
+                    ) {
+                        sex = newSex;
+                    }
+                },
+            };
+        };
+
+        var pet = createPet("Vivie");
+        pet.getName(); // Результат "Vivie"
+
+        pet.setName("Oliver");
+        pet.setSex("male");
+        pet.getSex(); // Получаем 'male'
+        pet.getName(); // Получаем 'Oliver'
+
+
+        var getCode = (function () {
+            var apiCode = "0]Eal(eh&2";
+            return function () {
+                return apiCode;
+            };
+        }) ();
+
+        getCode(); // Возвращает "0]Eal(eh&2"
+
+
+        var createPet = function (name) {
+            return {
+                setName: function (name) {
+                    name = name;
+                },
+            };
+        };
+        
+    </script>
+</body>
+</html>

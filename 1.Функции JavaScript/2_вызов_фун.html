@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вызовы функций</title>
+</head>
+<body>
+    <script>
+        
+        square(5);
+
+        console.log(square(5)); // получаем 25
+        /* ... */
+        function square(n) {
+            return n * n;
+        }
+
+        console.log(square); // Undefined
+
+        var square = function (n) {
+            return n* n;
+        };
+        console.log(square);
+
+
+
+        // Функция рекурсивного вычисления факториала
+        function factorial(n) {
+            if (n === 0 || n === 1) return 1;
+            else return n  * factorial(n-1);
+        }
+
+        var a, b, c, d, e;        
+        a = factorial(1); //получаем 1
+        b = factorial(2); //получаем 2
+        c = factorial(3); //получаем 6
+        d = factorial(4); //получаем 24
+        e = factorial(5); //получаем 120
+        console.log(a, b, c, d, e);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function definition expression"</title>
+</head>
+<body>
+    <script>
+        // Функции вида "function declaration statement"
+        function square(number) {
+            return number * number;
+        }
+        console.log(square); // Undefined
+        
+
+
+        function myFunc(theObject) {
+            theObject.make = "Toyota";
+        }
+
+        var mycar = { make: "Honda", model: "Accord", year: 1998};
+        var x, y;
+        x = mycar.make;
+
+        myFunc(mycar);
+        y = mycar.make;
+        console.log(y); // Получаем 'Toyota'
+
+
+
+        // Функции вида "function definition expression"
+        var square = function (number) {
+            return number * number;
+        };
+        var x = square(4); // Получаем 16
+
+
+
+
+        var factorial = function fac(n) {
+            return n < 2 ? 1 : n * fac(n-1);
+        }
+        console.log(factorial(3)); // Получаем 6
+
+
+
+        
+        function map(f, a) {
+            var result = [],
+            i;
+            for (i = 0; i != a.length; i++) result[i] = f(a[i]);
+            return result;
+        }
+        var f = function (x) {
+            return x * x * x;
+        };
+        var numbers = [0, 1, 2, 5, 10];
+        var cube = map(f, numbers);
+        console.log(cube); // Проверено: получаем [0, 1, 8, 125, 1000]
+        
+    </script>
+</body>
+</html>

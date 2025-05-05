@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Стрелочные функции</title>
+</head>
+<body>
+    <script>
+
+        // Более короткие функции
+        var a = ["Hydrogen", "Helium", "Lithium", "Beryllium"];
+        var a2 = a.map(function (s) {
+            return s.length;
+        });
+
+        console.log(a2);  // Результат [8, 6, 7, 9]
+
+        var a3 = a.map((s) => s.length);
+        console.log(a3); // Результат [8, 6, 7, 9]
+
+
+
+        // Лексика this
+
+        function Person() {
+            this.age = 0;
+
+            setInterval(function growUp() {
+                this.age++;
+            }, 1000);
+        }
+
+        var p = new Person();
+
+
+        function Person() {
+            var self = this;
+            self.age = 0;
+
+            setInterval(function growUp() {
+                self.age++;
+            }, 1000);
+        }
+
+
+        function Person() {
+            this.age = 0;
+            setInterval(() => {
+                this.age++;
+            }, 1000);
+        }
+
+        var p = new Person();
+        
+    </script>    
+</body>
+</html>

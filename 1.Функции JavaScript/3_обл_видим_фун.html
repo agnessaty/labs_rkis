@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Область видимости функций</title>
+</head>
+<body>
+    <script>
+
+        // Function scope
+        var num1= 20,
+        num2 = 3,
+        name = "Chamahk";
+
+        function multiply() {
+            return num1 * num2;
+        }
+
+        multiply(); // Получаем 60
+
+        // Пример вложенной функции
+        function getScore() {
+            var num1 = 2,
+            num2 = 3;
+            function add() {
+                return name + "scored" + (num1 + num2);
+            }
+            return add()
+        }
+
+        getScore(); // Получаем "Chamahkscored5"
+        
+
+
+
+        // Вложенные функции и замыкания
+
+        function addSquares(a, b) {
+            function square(x) {
+                return x * x;
+            }
+            return square(a) + square(b);
+        }
+        a = addSquares(2, 3); // Получаем 13
+        b = addSquares(3, 4); // Получаем 25
+        c = addSquares(4, 5); // Получаем 41
+
+        console.log(a, b, c);
+
+
+
+
+
+        function outside(x) {
+            function inside(y) {
+                return x + y;
+            }
+            return inside;
+        }
+        fn_inside = outside(3);
+
+        result = fn_inside(5); // Получаем 8
+
+        result = outside(3)(5); // Получаем 8
+
+
+
+
+
+        // Несколько уровней вложенности функций
+
+        function A(x) {
+            function B(y) {
+                function C(z) {
+                    console.log(x + y + z);
+                }
+                C(3);
+            }
+            B(2);
+        }
+        A(1); // Результат - 6
+
+
+
+        
+        // Конфликты имен
+        
+        function outside() {
+            var x = 5;
+            function inside(x) {
+                return x * 2;
+            }
+            return inside;
+        }
+
+        outside()(10); // Результат - 20
+        
+    </script>
+</body>
+</html>
